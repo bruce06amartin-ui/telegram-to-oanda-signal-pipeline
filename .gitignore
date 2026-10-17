@@ -1,0 +1,13 @@
+# secrets and runtime state: never commit these
+.env
+*.session
+*.session-journal
+KILL
+data/
+bot_state.json
+decisions.jsonl
+*.json.bak
+__pycache__/
+.pytest_cache/
+.venv/
+demo_out/
