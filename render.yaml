@@ -1,0 +1,42 @@
+services:
+  - type: worker                       # always-on background process, no web port needed
+    name: telegram-discord-forwarder
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python forwarder.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: TG_API_ID
+        sync: false                    # secrets are typed into the Render dashboard, never stored in the repo
+      - key: TG_API_HASH
+        sync: false
+      - key: TG_SESSION
+        sync: false
+      - key: TG_CHATS
+        sync: false                    # chat id(s) or @username(s) to watch
+      - key: TG_TOPICS
+        sync: false                    # optional: only forward these forum topic ids
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: MAX_FILE_MB
+        value: "8"
+      - key: DELETE_MODE
+        value: delete                  # or "mark" to strike the message through instead of deleting it
+      # ---- signal bot (off unless SIGNAL_BOT is 1) ----
+      - key: SIGNAL_BOT
+        value: "0"                     # set to 1 to switch the signal bot on
+      - key: OANDA_DRY_RUN
+        value: "1"                     # 1 = only log what it would do. 0 places PRACTICE-account orders
+      - key: OANDA_API_TOKEN
+        sync: false
+      - key: OANDA_ACCOUNT_ID
+        sync: false                    # practice account id (starts 101-)
+      - key: BOT_WEBHOOK_URL
+        sync: false                    # second Discord webhook: private channel where the bot reports decisions
+      - key: DATA_DIR
+        value: /data                   # persistent disk below, so the bot remembers its signals after a restart
+    disk:
+      name: bot-data
+      mountPath: /data
+      sizeGB: 1

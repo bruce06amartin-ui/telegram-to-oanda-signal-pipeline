@@ -1,0 +1,5 @@
+{"t": "2026-10-17T19:22:23+00:00", "kind": "would_place", "dry_run": true, "key": "buy|2406|2410|2403|2412,2414,2417,2420", "side": "buy", "units": 33, "entry": 2406.0, "sl": 2403.0, "tp3": 2417.0, "risk_pct": 0.99, "reason": "", "assumed_account": true, "order": "DRY-1"}
+{"t": "2026-10-17T19:22:23+00:00", "kind": "would_place", "dry_run": true, "key": "sell|2430|2434|2437|2428,2426,2423,2420", "side": "sell", "units": -33, "entry": 2434.0, "sl": 2437.0, "tp3": 2423.0, "risk_pct": 0.99, "reason": "", "assumed_account": true, "order": "DRY-2"}
+{"t": "2026-10-17T19:22:23+00:00", "kind": "duplicate", "dry_run": true, "key": "buy|2406|2410|2403|2412,2414,2417,2420", "note": "same signal text seen before; ignored"}
+{"t": "2026-10-17T19:22:23+00:00", "kind": "skip", "dry_run": true, "key": "buy|2406|2410|2415|2412,2414,2417", "reason": "stop is not below a buy zone"}
+{"t": "2026-10-17T19:22:42+00:00", "kind": "skip", "dry_run": true, "key": "sell|2440|2444|2447|2438,2436,2433,2430", "reason": "kill switch file present"}
